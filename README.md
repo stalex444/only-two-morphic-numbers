@@ -72,7 +72,7 @@ analysis file lists as wanted.
 
 ## Layout and build
 
-`Challenge.lean` states the three results with placeholder proofs;
+`Challenge.lean` states the four results with placeholder proofs;
 `Solution.lean` proves them by transfer from the proof module
 `PdtMorphic` (definition, plastic number with cubic and uniqueness,
 mirror dichotomy, the `ℤ[X]` cofactor analysis, the classification);
@@ -85,9 +85,9 @@ lake build
 ```
 
 (pinned toolchain and Mathlib; a green build is the kernel
-verification — the three placeholder `sorry` warnings in
+verification — the four placeholder `sorry` warnings in
 `Challenge.lean` are the only expected diagnostics, and
-`Solution.lean` prints the axiom audit for all three compared
+`Solution.lean` prints the axiom audit for all four compared
 theorems: `propext`, `Classical.choice`, `Quot.sound`.)
 
 ## Provenance
