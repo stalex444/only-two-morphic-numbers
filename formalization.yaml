@@ -191,6 +191,71 @@ sources:
     license: "unknown"
     author_endorsement: "n/a"
 
+  - title: "Algebraic integers whose conjugates lie in the unit circle"
+    authors:
+      - "Carl Ludwig Siegel"
+    id: "Duke Mathematical Journal 11 (1944), 597-602"
+    type: "article"
+    # Crossref-verified 2026-09-01 (this revision): DOI resolves; title,
+    # author, journal, volume, pages match.
+    location: "https://doi.org/10.1215/S0012-7094-44-01152-X"
+    relationship: "background"
+    note: >-
+      Cited for the contextual claim in the description that the
+      plastic number is the smallest Pisot number. Not formalized
+      here; the claim is context for the classified number's
+      independent standing, not part of any compared statement.
+    license: "unknown"
+    author_endorsement: "n/a"
+  - title: "On the product of the conjugates outside the unit circle of an algebraic integer"
+    authors:
+      - "Christopher J. Smyth"
+    id: "Bulletin of the London Mathematical Society 3 (1971), 169-175"
+    type: "article"
+    # Crossref-verified 2026-09-01 (this revision): DOI resolves.
+    location: "https://doi.org/10.1112/blms/3.2.169"
+    relationship: "background"
+    note: >-
+      Cited for the contextual claim that the plastic number is the
+      global minimum of the Mahler measure over nonreciprocal integer
+      polynomials (Smyth's theorem). Not formalized here; context
+      only.
+    license: "unknown"
+    author_endorsement: "n/a"
+  - title: "Dynamical degrees of birational transformations of projective surfaces"
+    authors:
+      - "Jeremy Blanc"
+      - "Serge Cantat"
+    id: "Journal of the American Mathematical Society 29 (2016), 415-471"
+    type: "article"
+    # Crossref-verified 2026-09-01 (this revision): DOI 10.1090/jams831
+    # (no slash) resolves and matches.
+    location: "https://doi.org/10.1090/jams831"
+    relationship: "background"
+    note: >-
+      Cited for the contextual claim that the plastic number is the
+      threshold constant of the classification of birational surface
+      dynamical degrees. Not formalized here; context only.
+    license: "unknown"
+    author_endorsement: "n/a"
+  - title: "Dynamics of rational surface automorphisms: linear fractional recurrences"
+    authors:
+      - "Eric Bedford"
+      - "Kyounghee Kim"
+    id: "Journal of Geometric Analysis 19 (2009), 553-583"
+    type: "article"
+    # Crossref-verified 2026-09-01 (this revision): DOI resolves.
+    location: "https://doi.org/10.1007/s12220-009-9077-8"
+    relationship: "background"
+    note: >-
+      Cited for the contextual claim that the plastic number is the
+      spectral limit of the Bedford-Kim automorphism family. Not
+      formalized here; context only (the spectral statement is
+      kernel-certified in the author's mahler-minimizer-compositum
+      entry).
+    license: "unknown"
+    author_endorsement: "n/a"
+
 related_formalizations:
   - id: "https://github.com/leanprover-community/mathlib4 (Mathlib/NumberTheory/Real/GoldenRatio.lean; Mathlib/RingTheory/Polynomial/Selmer.lean; Mathlib/Algebra/Polynomial/UnitTrinomial.lean)"
     relationship: "builds-on"
