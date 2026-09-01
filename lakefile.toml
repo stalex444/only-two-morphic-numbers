@@ -1,5 +1,5 @@
 name = "only-two-morphic-numbers"
-defaultTargets = ["PdtMorphic", "Challenge", "Solution"]
+defaultTargets = ["PdtMorphic", "Challenge", "Solution", "PdtFamilyBoundaries"]
 
 [[require]]
 name = "mathlib"
@@ -14,3 +14,6 @@ name = "Challenge"
 
 [[lean_lib]]
 name = "Solution"
+
+[[lean_lib]]
+name = "PdtFamilyBoundaries"
