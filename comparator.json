@@ -1,0 +1,15 @@
+{
+ "challenge_module": "Challenge",
+ "solution_module": "Solution",
+ "theorem_names": [
+  "MorphicNumbers.morphic_iff",
+  "MorphicNumbers.goldenRatio_morphic",
+  "MorphicNumbers.plasticNumber_morphic",
+  "MorphicNumbers.plastic_exists"
+ ],
+ "permitted_axioms": [
+  "propext",
+  "Quot.sound",
+  "Classical.choice"
+ ]
+}

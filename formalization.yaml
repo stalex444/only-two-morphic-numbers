@@ -1,0 +1,400 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+# Review status: self-assessed by the author, with an in-house
+# adversarial scoping pass (source extraction, prior-art sweep, compiled
+# feasibility probes, adversarial judge) applied before the build (see
+# the review block below).
+
+project:
+  name: "Only two morphic numbers: the Aarts-Fokkink-Kruijtzer classification of the golden ratio and the plastic number"
+  description: >-
+    Kernel-checked classification of the morphic numbers — the reals
+    p > 1 satisfying both of the golden ratio's defining scale
+    closures: p + 1 = p^k (the sum of consecutive measures of the
+    geometric system is again a measure) and p - 1 = p^(-l) (so is
+    their difference; rendered zpow-free as p^l * (p - 1) = 1). These
+    two equations are the arithmetic of self-similar proportion: a
+    number satisfying both generates a measure system closed under
+    the paper's superposition and juxtaposition, the property pair
+    behind the divine proportion's standing as the plane's design
+    constant. The theorem (Aarts-Fokkink-Kruijtzer 2001): there exist
+    only two such numbers — the golden ratio, with (k, l) = (2, 1),
+    and the plastic number, the real root of x^3 = x + 1, with
+    (k, l) = (3, 4). Four compared statements carry the
+    classification in full: existence of the cubic's root, the iff
+    pinning every morphic number to the golden ratio or that root,
+    and the two witnesses. The list of numbers with the golden
+    ratio's defining property pair is thereby provably complete at
+    two. The second member is a distinguished constant independently
+    of this theorem: the plastic number is the smallest Pisot number
+    (Siegel 1944); its minimal polynomial x^3 - x - 1 attains the
+    minimal Mahler measure among monic irreducible integer cubics
+    (kernel-certified in the registered entry
+    PALOMAR-2026-08-31-000004), and by Smyth's theorem its measure —
+    the number itself — is the global minimum of the Mahler measure
+    over nonreciprocal integer polynomials; it is the growth rate of
+    the Padovan and Perrin sequences, the cubic analogue of Fibonacci
+    growth; and it is the threshold constant of the Blanc-Cantat
+    classification of birational surface dynamical degrees, the
+    spectral limit of the Bedford-Kim automorphism family
+    (kernel-certified in the author's mahler-minimizer-compositum
+    entry). It entered mathematics from architecture: Dom Hans van
+    der Laan introduced it (Le Nombre Plastique, 1960) as the ideal
+    ratio of three-dimensional proportion — the same discovery made
+    independently by Cordonnier — and Kruijtzer conjectured, and
+    Aarts-Fokkink-Kruijtzer proved, that van der Laan's number is the
+    only companion the golden ratio has. What "morphic" adds to the
+    plastic number's distinctions is finality: the golden ratio's
+    arithmetic of self-similarity, taken as a definition, has exactly
+    one more solution among the reals. The formalized proof consumes
+    Selmer's trinomial irreducibility theorem from Mathlib, derives
+    the needed Tverberg-type instance through a mirror-dichotomy
+    argument carried out entirely in the integer polynomial ring
+    (simplifying the paper's complex-root analysis; disclosed in the
+    fidelity block), and closes with the factorization endgame
+    forcing (n, m) = (3, 5). No formalization of the morphic
+    classification, the plastic number, or the Padovan/Perrin
+    constants exists in any surveyed prover as of the 2026-09-01
+    sweep; Mathlib's golden-ratio development supplies one witness's
+    vocabulary. Axioms on every compared theorem: propext,
+    Classical.choice, Quot.sound, audited in-build.
+  authors:
+    - "Stephanie Alexander"
+  license: "MIT"
+  responsible_maintainers:
+    - "Stephanie Alexander"
+
+classification:
+  arxiv: ["math.NT", "math.HO"]
+  msc2020: ["11R09", "11C08", "00A67"]
+
+sources:
+  - title: "Morphic numbers"
+    authors:
+      - "Jan Aarts"
+      - "Robbert Fokkink"
+      - "Godfried Kruijtzer"
+    id: "Nieuw Archief voor Wiskunde (5) 2 (2001), 56-58"
+    # Primary-verified 2026-09-01: the journal's own open-access PDF
+    # (URL below) returns HTTP 200, 159,400 bytes, 3 pages, and was
+    # read in full during scoping; printed running head "NAW 5/2 nr. 2
+    # maart 2001"; ISSN 0028-9825, Koninklijk Wiskundig Genootschap;
+    # TU Delft research portal confirms volume 5, issue 2, pp. 56-58.
+    type: "article"
+    location: "https://www.nieuwarchief.nl/serie5/pdf/naw5-2001-02-1-056.pdf"
+    relationship: "formalizes"
+    note: >-
+      The source theorem (p. 58): there exist only two morphic numbers,
+      the divine proportion and the plastic number. The definition
+      (p. 57) and the theorem are formalized in full; the proof route
+      diverges at one step (see fidelity).
+    license: "unknown"
+    author_endorsement: "n/a"
+  - title: "On the irreducibility of certain trinomials"
+    authors:
+      - "Ernst S. Selmer"
+    id: "Mathematica Scandinavica 4 (1956), 287-302"
+    # Crossref-verified 2026-09-01: DOI 10.7146/math.scand.a-10478,
+    # author Selmer, Math. Scand. volume 4, first page 287; the DOI
+    # resolves (HTTP 200) to the journal's article page.
+    type: "article"
+    location: "https://doi.org/10.7146/math.scand.a-10478"
+    relationship: "background"
+    note: >-
+      Literature input A of the AFK proof: X^n - X - 1 is irreducible
+      over the integers for n != 1. Consumed from Mathlib
+      (Polynomial.X_pow_sub_X_sub_one_irreducible, formalized by
+      Thomas Browning), not re-proved here.
+    license: "unknown"
+    author_endorsement: "n/a"
+  - title: "On the irreducibility of the trinomials x^n +/- x^m +/- 1"
+    authors:
+      - "Helge Tverberg"
+    id: "Mathematica Scandinavica 8 (1960), 121-126"
+    # Crossref-verified 2026-09-01: DOI 10.7146/math.scand.a-10599,
+    # author Tverberg, Math. Scand. volume 8, first page 121.
+    type: "article"
+    location: "https://doi.org/10.7146/math.scand.a-10599"
+    relationship: "background"
+    note: >-
+      Literature input B of the AFK proof: a trinomial x^m +/- x^k
+      +/- 1 is irreducible or the product of (irreducible or constant)
+      with (a polynomial all of whose zeros have modulus 1). AFK cite
+      this general theorem; the formal proof does NOT — it derives the
+      needed instance from the Ljunggren machinery below. Cited with
+      that explicit provenance note.
+    license: "unknown"
+    author_endorsement: "n/a"
+  - title: "On the irreducibility of certain trinomials and quadrinomials"
+    authors:
+      - "Wilhelm Ljunggren"
+    id: "Mathematica Scandinavica 8 (1960), 65-70"
+    # Crossref-verified 2026-09-01: DOI 10.7146/math.scand.a-10593,
+    # author Ljunggren, Math. Scand. volume 8, first page 65.
+    type: "article"
+    location: "https://doi.org/10.7146/math.scand.a-10593"
+    relationship: "background"
+    note: >-
+      The actual proof-route ancestor: Mathlib's unit-trinomial
+      dichotomy (Polynomial.IsUnitTrinomial.irreducible_of_coprime,
+      formalized by Thomas Browning) implements Ljunggren's method,
+      and the mirror dichotomy this entry extracts from its proof body
+      supplies the Tverberg instance the AFK argument needs. Same
+      journal volume as Tverberg 1960.
+    license: "unknown"
+    author_endorsement: "n/a"
+  - title: "Le Nombre Plastique: quinze Lecons sur l'Ordonnance architectonique"
+    authors:
+      - "Hans van der Laan"
+    id: "E. J. Brill, Leiden, 1960"
+    # Verified 2026-09-01 via OpenLibrary: author Hans van der Laan,
+    # publisher E. J. Brill, Leiden, 1960 — matching reference [3] of
+    # the AFK paper.
+    type: "book"
+    location: "https://openlibrary.org/search?q=Le+nombre+plastique+van+der+Laan"
+    relationship: "background"
+    note: >-
+      Origin of the plastic number: van der Laan introduces it as the
+      ideal ratio for spatial objects. Cited for the constant's
+      provenance; contains no part of the classification theorem.
+    license: "unknown"
+    author_endorsement: "n/a"
+  - title: "Dom Hans van der Laan: Modern Primitive"
+    authors:
+      - "Richard Padovan"
+    id: "Architectura & Natura Press, Amsterdam, 1994"
+    # Verified 2026-09-01 via OpenLibrary: author Richard Padovan,
+    # publisher Architectura & Natura Press, 1994 — matching reference
+    # [4] of the AFK paper.
+    type: "book"
+    location: "https://openlibrary.org/search?q=Padovan+Dom+Hans+van+der+Laan"
+    relationship: "background"
+    note: >-
+      Audience and context: records (p. 96, per the AFK paper) the
+      independent discovery of the plastic number by Gerard Cordonnier.
+    license: "unknown"
+    author_endorsement: "n/a"
+  - title: "Ruimte en Getal: Het plastische Getal en het gulden-Snedegetal"
+    authors:
+      - "Godfried Kruijtzer"
+    id: "Architectura & Natura, Amsterdam, 1998"
+    # Verified 2026-09-01 via OpenLibrary: author Godfried Kruijtzer,
+    # publisher Architectura & Natura, 1998 — matching reference [2] of
+    # the AFK paper.
+    type: "book"
+    location: "https://openlibrary.org/search?q=Kruijtzer+Ruimte+en+getal"
+    relationship: "background"
+    note: >-
+      Origin of the only-two conjecture that the AFK paper proves —
+      the conjecture this entry's compared theorem settles in the
+      kernel.
+    license: "unknown"
+    author_endorsement: "n/a"
+
+related_formalizations:
+  - id: "https://github.com/leanprover-community/mathlib4 (Mathlib/NumberTheory/Real/GoldenRatio.lean; Mathlib/RingTheory/Polynomial/Selmer.lean; Mathlib/Algebra/Polynomial/UnitTrinomial.lean)"
+    relationship: "builds-on"
+    note: >-
+      Honest accounting of what is consumed: Real.goldenRatio and
+      goldenRatio_sq from the GoldenRatio file; SELMER'S THEOREM ITSELF
+      (Polynomial.X_pow_sub_X_sub_one_irreducible, Thomas Browning) —
+      the heavier of AFK's two literature inputs is Mathlib's, not this
+      entry's; and the Ljunggren unit-trinomial machinery (trinomial,
+      mirror, isUnitTrinomial_iff'', irreducible_aux3 — a public if
+      aux-named lemma), from whose irreducible_of_coprime proof body
+      the mirror dichotomy is extracted. Mathlib contains no morphic
+      characterization, no plastic number, and no Padovan/Perrin
+      material (checked at the pin fabf563a and at master); the
+      definition, the plastic number with its uniqueness, the cofactor
+      analysis, and the classification are this entry's contribution.
+      The extracted dichotomy is a candidate contribution under that file's generic "Develop more theory" TODO.lean — a
+      candidate upstream byproduct.
+  - id: "https://github.com/stalex444/pdt-lean (parent development; pinned reference revision: commit d66ffbe813e48636aa636ffcd80070b81cbf10da)"
+    relationship: "other"
+    note: >-
+      The broader public project this entry belongs to. This repository
+      is the complete, self-contained proof development for the
+      compared statements, not a wrapper: the proof module PdtMorphic
+      builds here with the pinned toolchain and no imports from the
+      parent, and it is NATIVE to this repository — it appears in no
+      other development at the pinned revision. The parent development
+      shares the plastic-number conventions (rho via rho^3 = rho + 1).
+  - id: "Registered entry PALOMAR-2026-08-31-000004 (stalex444/mahler-measure-minima, registered revision ca3df22)"
+    relationship: "other"
+    note: >-
+      The registered sibling entry, by the same author: for each degree
+      d in {2, 3, 4}, x^d - x - 1 attains the minimal Mahler measure
+      among monic irreducible integer polynomials of degree d with
+      measure above one. Complementarity, not duplication: the sibling
+      characterizes x^2 - x - 1 and x^3 - x - 1 by EXTREMALITY (the
+      Smyth/Mossinghoff lineage); this entry characterizes their roots
+      phi and rho by the FUNCTIONAL EQUATIONS p + 1 = p^k and
+      p - 1 = p^(-l) (the van der Laan/AFK lineage). Different
+      literature, different audiences, zero shared statements — two
+      independent theorems landing on the same pair of numbers from
+      opposite sides.
+
+status:
+  scope: >-
+    Formalized, 4 compared theorems, hypotheses inline. (1) morphic_iff
+    — THE theorem, the full AFK classification as an unconditional iff
+    in p: the inline morphic property holds iff p = Real.goldenRatio or
+    p = rho, with rho pinned hypothesis-style (1 < rho,
+    rho^3 = rho + 1); the forward direction is the negative half
+    (Selmer minimal polynomial, mirror dichotomy, cofactor divides
+    X^2 - X + 1, forced factorizations pinning (k, l) = (2, 1) or
+    (3, 4)), the reverse direction carries both witnesses; existence of the cubic's root is compared separately (plastic_exists). (2)
+    goldenRatio_morphic and (3) plasticNumber_morphic — the two
+    witnesses as separate compared corollaries, explicitly labeled
+    routine consequences (readability surface, never headlines).
+    NOT formalized: nothing — the classification is proved in full,
+    with no step cited in place of proof; the one proof-route
+    divergence from the paper (the cofactor analysis in Z[X] instead
+    of complex modulus-1 zeros) changes no statement and is disclosed
+    in the fidelity block. No physical claim is part of the compared
+    statements.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  # Every compared theorem's #print axioms output (terminal, in-build,
+  # in Solution.lean) is exactly [propext, Classical.choice,
+  # Quot.sound].
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["Anthropic Claude (Opus/Fable-class, 2026)"]
+      framework: "Claude Code"
+      tool_setup: >-
+        AI-assisted proof drafting and error-loop iteration against
+        lake build, under the author's direction; every compared
+        declaration kernel-checked and axiom-audited (#print axioms:
+        propext, Classical.choice, Quot.sound). The build was
+        probe-scaffolded: a scoping pass compiled three probe files
+        against the pinned Mathlib (the definition and witnesses, the
+        mirror-dichotomy extraction, the endgame identities) before the
+        module was written; the module then closed in 11 build
+        iterations.
+      cost:
+        wall_time: "one session, 2026-09-01 (scoping probes, kernel closure of the proof module, and the comparison surface)"
+        spend_usd: "subscription-based"
+        hardware: "local machine"
+      prompting_notes: >-
+        Statements fixed from the source paper and the scoping
+        judgment's recommended set first; proofs iterated against the
+        compiler gate by gate (witness identities, minimal-polynomial
+        pinning via Selmer, the mirror dichotomy, the Z[X] cofactor
+        divisibility argument, the forced-factorization endgames).
+    - method: "manual"
+      models: []
+      framework: "n/a"
+      tool_setup: >-
+        Author-directed target selection, statement design, and
+        acceptance; statements audited by the author against the
+        source paper's definition and theorem.
+      cost:
+        wall_time: "included in the session above"
+        spend_usd: "not tracked"
+        hardware: "local machine"
+      prompting_notes: "n/a"
+  spend_usd: "subscription-based"
+  notes: >-
+    Human-directed, machine-verified workflow: the author fixes targets
+    and reviews statements; AI assistance drafts and repairs proofs;
+    the Lean kernel is the acceptance criterion.
+
+fidelity:
+  divergences: >-
+    STATEMENT fidelity is exact: the definition is transcribed from
+    p. 57 of the paper (p + 1 = p^k and p - 1 = p^(-l), the second
+    equation rendered zpow-free as p^l * (p - 1) = 1; the conjuncts
+    0 < k and 0 < l transcribe "natural numbers", and are removable — k = 0 would
+    force 1 = p + 1, against 1 < p, and l = 0 would force p = 2,
+    killed by 2^k = 3; p > 1 sits inside the
+    morphic property, so the compared iff is unconditional in p. The
+    plastic number enters the compared statements hypothesis-style
+    (1 < rho and rho^3 = rho + 1) and is reconciled to the proof
+    module's constructed constant by its uniqueness lemma. One
+    PROOF-ROUTE divergence, with identical statement: the paper's
+    Lemma derives the cofactor from Tverberg's theorem and an analysis
+    of complex zeros of modulus 1 (a modulus-1 zero of
+    x^m - x^(m-1) - 1 has distance 1 from both 0 and 1, forcing a
+    primitive sixth root of unity, hence divisibility by
+    x^2 - x + 1). The formal proof replaces both the citation and the
+    complex analysis: the mirror dichotomy (extracted from Mathlib's
+    Ljunggren machinery) forces the cofactor q to be mirror-fixed, and
+    the rest runs wholly in Z[X] — q divides both the trinomial B and
+    its mirror, hence q divides X * (X^j + 1); q's constant
+    coefficient is a unit, so an explicit Bezout pair makes q coprime
+    to X, giving q | X^j + 1; then q divides
+    (X - 1) * X * (X^j + 1) - B = X^2 - X + 1. This is a
+    simplification, not a weakening. The two points the paper leaves
+    implicit — that Tverberg's all-modulus-1 factor is a priori a
+    POWER of x^2 - x + 1, and the separability needed to reduce that
+    power to one — do not arise on this route and are discharged
+    explicitly: the cofactor is proved to divide the quadratic
+    outright, and a monic divisor of x^2 - x + 1 is 1 or the quadratic
+    itself (a linear divisor is killed by a^2 + a + 1 != 0 over the
+    integers).
+
+review:
+  status: "self-assessed"
+  reviewers:
+    - "Stephanie Alexander"
+  notes: >-
+    Statements audited by the author against the source paper (read in
+    full from the journal's open-access PDF); the kernel and the axiom
+    audit are the acceptance criteria. An in-house adversarial scoping
+    pass, automated (AI-assisted: Anthropic Claude, in Claude Code,
+    under the author's direction), was applied before the build,
+    2026-09-01: independent source-extraction and prior-art probes, a
+    hands-on Lean feasibility probe (three compiled probe files
+    against the pinned Mathlib), and an adversarial judge whose
+    recommended statement set — the full iff as the load-bearing
+    statement, the witnesses admitted only as labeled-routine
+    readability surface — is the set implemented here.
+
+alignment:
+  namespace: "MorphicNumbers"
+  statements:
+    - source: "Aarts-Fokkink-Kruijtzer 2001, Theorem (p. 58): there exist only two morphic numbers, the divine proportion and the plastic number"
+      lean: "MorphicNumbers.morphic_iff"
+      module: "Solution"
+      status: "proved"
+      note: >-
+        The full classification as an unconditional iff in p, with rho
+        pinned hypothesis-style; forward direction the negative half,
+        reverse direction both witnesses.
+    - source: "Aarts-Fokkink-Kruijtzer 2001, p. 57 (the divine proportion's scale identities 1 + phi = phi^2 and phi - 1 = 1/phi)"
+      lean: "MorphicNumbers.goldenRatio_morphic"
+      module: "Solution"
+      status: "proved"
+      note: >-
+        Witness corollary, (k, l) = (2, 1). Explicitly a routine
+        consequence of Real.goldenRatio_sq; readability surface.
+    - source: "Aarts-Fokkink-Kruijtzer 2001, p. 57 (the plastic number's identities, via x^5 - x^4 - 1 = (x^3 - x - 1)(x^2 - x + 1))"
+      lean: "MorphicNumbers.plasticNumber_morphic"
+      module: "Solution"
+      status: "proved"
+      note: >-
+        Witness corollary, (k, l) = (3, 4), by the paper's own
+        displayed identity applied at rho. Explicitly a routine
+        consequence of the defining cubic; readability surface.
+
+    - source: "Aarts-Fokkink-Kruijtzer 2001 (existence side of the Theorem, p. 58; the root's existence by the intermediate value theorem)"
+      lean: "MorphicNumbers.plastic_exists"
+      module: "Solution"
+      status: "proved"
+      note: >-
+        A real x > 1 with x^3 = x + 1 exists — the existence half of
+        "there exist only two morphic numbers"; with morphic_iff and
+        the witnesses, the compared surface carries the full
+        existence-and-uniqueness classification.
+
+acknowledgements: >-
+  Built on Mathlib and the Lean 4 toolchain — with particular thanks to
+  the authors of Mathlib's Selmer file (Thomas Browning's formalization
+  of Selmer's 1956 theorem, consumed here as the heavy literature input)
+  and of the unit-trinomial Ljunggren machinery and GoldenRatio file;
+  thanks to the leanprover community. Developed with AI assistance
+  (Anthropic Claude, in Claude Code) under the author's direction.

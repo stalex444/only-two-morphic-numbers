@@ -1,5 +1,5 @@
-name = "morphic-numbers"
-defaultTargets = ["PdtMorphic"]
+name = "only-two-morphic-numbers"
+defaultTargets = ["PdtMorphic", "Challenge", "Solution"]
 
 [[require]]
 name = "mathlib"
@@ -8,3 +8,9 @@ rev = "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f"
 
 [[lean_lib]]
 name = "PdtMorphic"
+
+[[lean_lib]]
+name = "Challenge"
+
+[[lean_lib]]
+name = "Solution"

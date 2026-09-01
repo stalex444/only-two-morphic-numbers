@@ -111,7 +111,7 @@
       "configFile": "lakefile.toml"
     }
   ],
-  "name": "\u00abmorphic-numbers\u00bb",
+  "name": "\u00abonly-two-morphic-numbers\u00bb",
   "lakeDir": ".lake",
   "fixedToolchain": false
 }
